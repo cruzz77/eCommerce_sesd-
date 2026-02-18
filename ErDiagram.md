@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
 
 USER {
@@ -74,3 +75,4 @@ PRODUCT ||--o{ CART_ITEM : added_to
 ORDER ||--|{ ORDER_ITEM : includes
 PRODUCT ||--o{ ORDER_ITEM : purchased_as
 ORDER ||--|| PAYMENT : has
+```
