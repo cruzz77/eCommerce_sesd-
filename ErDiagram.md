@@ -1,63 +1,76 @@
-@startuml
+erDiagram
 
-entity User {
-  * id : ObjectId
-  --
-  name : string
-  email : string
-  password : string
-  role : string
+USER {
+  string id
+  string name
+  string email
+  string password
+  string role
+  string createdAt
 }
 
-entity Product {
-  * id : ObjectId
-  --
-  name : string
-  price : number
-  stock : number
-  category_id : ObjectId
+CATEGORY {
+  string id
+  string name
+  string description
 }
 
-entity Category {
-  * id : ObjectId
-  --
-  name : string
+PRODUCT {
+  string id
+  string name
+  string description
+  float price
+  int stock
+  string imageUrl
+  string categoryId
+  string createdAt
 }
 
-entity Cart {
-  * id : ObjectId
-  --
-  user_id : ObjectId
+CART {
+  string id
+  string userId
+  float totalPrice
+  string createdAt
 }
 
-entity CartItem {
-  * id : ObjectId
-  --
-  cart_id : ObjectId
-  product_id : ObjectId
-  quantity : number
+CART_ITEM {
+  string id
+  string cartId
+  string productId
+  int quantity
+  float price
 }
 
-entity Order {
-  * id : ObjectId
-  --
-  user_id : ObjectId
-  total_amount : number
-  status : string
+ORDER {
+  string id
+  string userId
+  float totalAmount
+  string status
+  string createdAt
 }
 
-entity Payment {
-  * id : ObjectId
-  --
-  order_id : ObjectId
-  status : string
+ORDER_ITEM {
+  string id
+  string orderId
+  string productId
+  int quantity
+  float price
 }
 
-User ||--o{ Cart
-Cart ||--o{ CartItem
-Product ||--o{ CartItem
-User ||--o{ Order
-Order ||--|| Payment
-Category ||--o{ Product
+PAYMENT {
+  string id
+  string orderId
+  string paymentMethod
+  string paymentStatus
+  string transactionId
+  string createdAt
+}
 
-@enduml
+USER ||--|| CART : owns
+USER ||--o{ ORDER : places
+CATEGORY ||--o{ PRODUCT : contains
+CART ||--o{ CART_ITEM : contains
+PRODUCT ||--o{ CART_ITEM : added_to
+ORDER ||--|{ ORDER_ITEM : includes
+PRODUCT ||--o{ ORDER_ITEM : purchased_as
+ORDER ||--|| PAYMENT : has
