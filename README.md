@@ -3,7 +3,6 @@
 # ShopSphere
 ### Production-Oriented Full Stack E-Commerce System
 
----
 
 [![Node.js](https://img.shields.io/badge/Node.js-Backend-green)]()
 [![Express](https://img.shields.io/badge/Express.js-Framework-black)]()
@@ -12,13 +11,11 @@
 [![Architecture](https://img.shields.io/badge/Architecture-Layered%20Design-purple)]()
 [![Auth](https://img.shields.io/badge/Auth-JWT-red)]()
 
----
 
 **Engineered with scalable architecture, backend rigor, and system design principles.**
 
 </div>
 
----
 
 ## System Overview
 
@@ -35,7 +32,6 @@ The project emphasizes:
 Backend weightage: 75%  
 Frontend weightage: 25%
 
----
 
 ## Architecture Blueprint
 
@@ -57,7 +53,6 @@ Database
 
 Each layer has a single responsibility, ensuring maintainability and extensibility.
 
----
 
 ## Engineering Principles Applied
 
@@ -76,7 +71,6 @@ Each layer has a single responsibility, ensuring maintainability and extensibili
 - Strategy (Payment processing)  
 - Factory (Payment instantiation)  
 
----
 
 ## Core Functional Modules
 
@@ -107,7 +101,6 @@ Each layer has a single responsibility, ensuring maintainability and extensibili
 - Transaction recording
 - Payment status validation
 
----
 
 ## Data Model Overview
 
@@ -131,22 +124,19 @@ Each layer has a single responsibility, ensuring maintainability and extensibili
 
 Detailed ER, Class, Sequence, and Use Case diagrams are included in the repository.
 
----
 
-## Project Structure
+## Project Structure(Is in dev stage as of now)
 
 ```
-src/
+root/
 │
-├── controllers/
-├── services/
-├── repositories/
-├── models/
-├── routes/
-├── middlewares/
-├── utils/
-├── config/
-└── app.js
+├── ErDiagram.md/
+├── README.md/
+├── classDiagram.md/
+├── idea.md/
+├── product_data.csv/
+├── sequenceDiagram.md/
+├── useCaseDiagram.md/
 ```
 
 This modular organization ensures:
@@ -154,8 +144,6 @@ This modular organization ensures:
 - Low coupling
 - High cohesion
 - Clear dependency boundaries
-
----
 
 ## Security Architecture
 
@@ -165,19 +153,17 @@ This modular organization ensures:
 - Request validation middleware
 - Role-based route guards
 
----
 
 ## Data Simulation
 
 A dataset containing 500 product records is included for testing and development:
 
 ```
-shopsphere_products_500.csv
+product_data.csv.csv
 ```
 
 This allows realistic API testing and database seeding.
 
----
 
 ## Scalability Considerations
 
@@ -187,7 +173,6 @@ This allows realistic API testing and database seeding.
 - Repository abstraction for database swap flexibility
 - Ready for containerization (Docker-ready structure)
 
----
 
 ## Potential Extensions
 
@@ -199,7 +184,6 @@ This allows realistic API testing and database seeding.
 - Cloud deployment (AWS / GCP)
 - Payment gateway integration (Stripe / Razorpay)
 
----
 
 ## Why This Project Stands Out
 
@@ -216,7 +200,6 @@ It demonstrates:
 
 It reflects production-oriented backend engineering rather than academic-level implementation.
 
----
 
 ## Getting Started
 
@@ -242,7 +225,6 @@ DATABASE_URL=your_database_url
 JWT_SECRET=your_secret_key
 ```
 
----
 
 <div align="center">
 
