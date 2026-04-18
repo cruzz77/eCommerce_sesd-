@@ -1,0 +1,43 @@
+src/modules/auth/auth.routes.ts(3,28): error TS2307: Cannot find module '../modules/auth/auth.controller' or its corresponding type declarations.
+src/modules/auth/auth.routes.ts(4,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/auth/auth.service.ts(34,48): error TS2352: Conversion of type 'ObjectId' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+src/modules/cart/cart.controller.ts(27,65): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/cart/cart.routes.ts(3,28): error TS2307: Cannot find module '../modules/cart/cart.controller' or its corresponding type declarations.
+src/modules/cart/cart.routes.ts(4,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/category/category.controller.ts(23,42): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/category/category.routes.ts(3,32): error TS2307: Cannot find module '../modules/category/category.controller' or its corresponding type declarations.
+src/modules/category/category.routes.ts(4,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/category/category.routes.ts(5,32): error TS2307: Cannot find module '../middleware/roleMiddleware' or its corresponding type declarations.
+src/modules/order/order.controller.ts(22,51): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/order/order.controller.ts(32,51): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/order/order.routes.ts(3,29): error TS2307: Cannot find module '../modules/order/order.controller' or its corresponding type declarations.
+src/modules/order/order.routes.ts(4,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/order/order.routes.ts(5,32): error TS2307: Cannot find module '../middleware/roleMiddleware' or its corresponding type declarations.
+src/modules/order/order.service.ts(37,46): error TS2352: Conversion of type 'ObjectId' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+src/modules/payment/payment.controller.ts(17,60): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/payment/payment.routes.ts(3,31): error TS2307: Cannot find module '../modules/payment/payment.controller' or its corresponding type declarations.
+src/modules/payment/payment.routes.ts(4,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/payment/payment.service.ts(41,42): error TS2352: Conversion of type 'ObjectId' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+src/modules/product/product.controller.ts(17,53): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/product/product.controller.ts(27,56): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/product/product.controller.ts(32,40): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/product/product.routes.ts(3,31): error TS2307: Cannot find module '../modules/product/product.controller' or its corresponding type declarations.
+src/modules/product/product.routes.ts(4,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/product/product.routes.ts(5,32): error TS2307: Cannot find module '../middleware/roleMiddleware' or its corresponding type declarations.
+src/modules/user/user.controller.ts(17,48): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/user/user.controller.ts(22,34): error TS2345: Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  Type 'string[]' is not assignable to type 'string'.
+src/modules/user/user.model.ts(43,3): error TS2349: This expression is not callable.
+  Type 'SaveOptions' has no call signatures.
+src/modules/user/user.routes.ts(2,28): error TS2307: Cannot find module '../modules/user/user.controller' or its corresponding type declarations.
+src/modules/user/user.routes.ts(3,32): error TS2307: Cannot find module '../middleware/authMiddleware' or its corresponding type declarations.
+src/modules/user/user.routes.ts(4,32): error TS2307: Cannot find module '../middleware/roleMiddleware' or its corresponding type declarations.
