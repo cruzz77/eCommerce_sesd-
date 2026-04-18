@@ -3,231 +3,181 @@
 # ShopSphere
 ### Production-Oriented Full Stack E-Commerce System
 
-
-[![Node.js](https://img.shields.io/badge/Node.js-Backend-green)]()
-[![Express](https://img.shields.io/badge/Express.js-Framework-black)]()
-[![React](https://img.shields.io/badge/React-Frontend-blue)]()
-[![Database](https://img.shields.io/badge/Database-MongoDB%20%7C%20MySQL-orange)]()
-[![Architecture](https://img.shields.io/badge/Architecture-Layered%20Design-purple)]()
-[![Auth](https://img.shields.io/badge/Auth-JWT-red)]()
-
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)]()
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)]()
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)]()
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)]()
+[![Groq AI](https://img.shields.io/badge/Groq_AI-F44336?style=for-the-badge&logo=openai&logoColor=white)]()
 
 **Engineered with scalable architecture, backend rigor, and system design principles.**
 
 </div>
 
+---
 
-## System Overview
+## 📖 Table of Contents
+- [Project Overview](#-project-overview)
+- [System Architecture](#-system-architecture)
+- [Core Features](#-core-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Design Principles](#-design-principles)
+- [AI Integration](#-ai-integration)
+- [Database Modeling](#-database-modeling)
 
-ShopSphere is a backend-focused, production-inspired e-commerce platform designed with clean architecture and strong separation of concerns.
+---
 
-The project emphasizes:
+## 🌟 Project Overview
 
-- Structured backend layering
-- Object-Oriented Design
-- Real-world system modeling
-- Scalable database relationships
-- Security-driven API development
+**ShopSphere** is a premium, full-stack E-Commerce platform designed with a "Dark Luxury" aesthetic. While delivering a seamless shopping experience, the project's primary objective is to demonstrate **advanced backend engineering** and **clean system design**.
 
-Backend weightage: 75%  
-Frontend weightage: 25%
+Key highlights include:
+- **Layered Architecture**: Strict separation of concerns (Controller → Service → Repository).
+- **AI-Powered Discovery**: Integration with Groq (Llama 3) for natural language product matching.
+- **Robust Security**: JWT-based authentication with role-based access control (RBAC).
+- **Scalable Design**: Optimized MongoDB relationships and repository-patterned data access.
 
+---
 
-## Architecture Blueprint
+## 🏗 System Architecture
 
-### Backend Layering
+The application follows a highly modular, layered architecture to ensure maintainability and testability.
 
+### Backend Flow
+```mermaid
+graph LR
+    Client --> Routes
+    Routes --> Middleware(Auth/Validation)
+    Middleware --> Controllers
+    Controllers --> Services(Business Logic)
+    Services --> AI_Service(Groq/LLM)
+    Services --> Repositories(Data Access)
+    Repositories --> Database[(MongoDB)]
 ```
-Client
-   ↓
-Routes
-   ↓
-Controllers
-   ↓
-Services
-   ↓
-Repositories
-   ↓
-Database
-```
 
-Each layer has a single responsibility, ensuring maintainability and extensibility.
+### OOP & Design Patterns
+- **Repository Pattern**: Abstracting persistence logic from business services.
+- **Service Layer Pattern**: Centralizing core business rules.
+- **Strategy Pattern**: Flexible payment processing handling different providers.
+- **Singleton**: Optimized database connection management.
+- **Encapsulation**: Strict scoping of module logic and data models.
 
+---
 
-## Engineering Principles Applied
+## 🚀 Core Features
 
-### Object-Oriented Design
+### 👤 User Capabilities
+- **Authentication**: Secure registration and login using JWT and Bcrypt.
+- **Interactive Browsing**: Filter products by category and explore the luxury catalog.
+- **Persistent Cart**: Items remain in the user's cart across sessions.
+- **Order Flow**: Integrated checkout process with order history and tracking.
+- **AI Concierge**: Find products using natural language queries (e.g., "Show me something elegant for a formal dinner").
 
-- Encapsulation → Business logic isolated in services  
-- Abstraction → Repository layer abstracts persistence  
-- Inheritance → Role-based user hierarchy  
-- Polymorphism → Strategy-based payment processing  
+### 🛠 Admin Dashboard
+- **Inventory Management**: Full CRUD operations for products and categories.
+- **Order Oversight**: Monitor all customer orders and update shipping statuses.
+- **Database Control**: Ability to seed and reset system data.
 
-### Design Patterns
+---
 
-- Repository Pattern  
-- Service Layer Pattern  
-- Singleton (Database connection)  
-- Strategy (Payment processing)  
-- Factory (Payment instantiation)  
+## 💻 Tech Stack
 
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React (Vite), TypeScript, Tailwind CSS, Framer Motion, Lucide Icons |
+| **Backend** | Node.js, Express, TypeScript, Mongoose |
+| **Database** | MongoDB Atlas |
+| **AI** | Groq SDK (Llama 3 70B) |
+| **Auth** | JSON Web Tokens (JWT), Bcrypt.js |
+| **Dev Tools** | Concurrenty, ESLint, TypeScript |
 
-## Core Functional Modules
+---
 
-### Authentication & Authorization
-- JWT-based authentication
-- Role-based access control
-- Protected admin routes
-- Password hashing with bcrypt
+## 📁 Project Structure
 
-### Product Management
-- Category-based classification
-- Stock tracking
-- Price & discount handling
-- Admin CRUD operations
-
-### Cart System
-- Persistent cart per user
-- Quantity updates
-- Total price calculation
-
-### Order Management
-- Order creation from cart
-- Order items tracking
-- Status transitions (Pending → Paid → Shipped → Delivered)
-
-### Payment Processing
-- Strategy-based payment handling
-- Transaction recording
-- Payment status validation
-
-
-## Data Model Overview
-
-### Primary Entities
-
-- USER
-- CATEGORY
-- PRODUCT
-- CART
-- CART_ITEM
-- ORDER
-- ORDER_ITEM
-- PAYMENT
-
-### Relationship Highlights
-
-- One-to-One → User ↔ Cart  
-- One-to-Many → User → Orders  
-- Many-to-Many → Orders ↔ Products (via OrderItem)  
-- One-to-Many → Category → Products  
-
-Detailed ER, Class, Sequence, and Use Case diagrams are included in the repository.
-
-
-## Project Structure(Is in dev stage as of now)
-
-```
+```bash
 root/
-│
-├── ErDiagram.md/
-├── README.md/
-├── classDiagram.md/
-├── idea.md/
-├── product_data.csv/
-├── sequenceDiagram.md/
-├── useCaseDiagram.md/
+├── backend/            # Express Server (TypeScript)
+│   ├── src/
+│   │   ├── modules/    # AI, Auth, Cart, Order, Payment, Product, User
+│   │   ├── middleware/ # Auth guards, Error handling
+│   │   ├── config/     # DB & SDK configurations
+│   │   ├── seeders/    # Data initialization scripts
+│   │   └── utils/      # Shared helpers (ApiResponse, ApiError)
+├── frontend/           # React Application (TypeScript)
+│   ├── src/
+│   │   ├── components/ # Reusable UI elements
+│   │   ├── pages/      # View components (Home, Discovery, Cart)
+│   │   ├── store/      # Global state management
+│   │   └── styles/     # Global CSS and Tailwind configs
+├── diagrams/           # ER, Class, Sequence & Use Case documents
+├── idea.md             # Original project vision
+└── product_data.csv    # Seed data for 500+ items
 ```
 
-This modular organization ensures:
+---
 
-- Low coupling
-- High cohesion
-- Clear dependency boundaries
+## 🚦 Getting Started
 
-## Security Architecture
+### Prerequisites
+- Node.js (v18+)
+- MongoDB connection string
+- Groq API Key (for discovery features)
 
-- Encrypted passwords (bcrypt)
-- JWT token validation middleware
-- Centralized error handling
-- Request validation middleware
-- Role-based route guards
+### Installation
+1. Clone the repository
+2. Install dependencies in the root folder:
+   ```bash
+   npm install
+   ```
 
-
-## Data Simulation
-
-A dataset containing 500 product records is included for testing and development:
-
-```
-product_data.csv.csv
-```
-
-This allows realistic API testing and database seeding.
-
-
-## Scalability Considerations
-
-- Stateless API design
-- Layer separation for easy microservice migration
-- Clear domain modeling
-- Repository abstraction for database swap flexibility
-- Ready for containerization (Docker-ready structure)
-
-
-## Potential Extensions
-
-- Product reviews & ratings
-- Wishlist module
-- Coupon & discount engine
-- Recommendation system
-- Microservices decomposition
-- Cloud deployment (AWS / GCP)
-- Payment gateway integration (Stripe / Razorpay)
-
-
-## Why This Project Stands Out
-
-This is not a simple CRUD application.
-
-It demonstrates:
-
-- Backend-dominant architecture
-- Real-world domain modeling
-- Proper normalization
-- Clean code layering
-- Applied design patterns
-- System design thinking
-
-It reflects production-oriented backend engineering rather than academic-level implementation.
-
-
-## Getting Started
-
-### Install Dependencies
-
-```
-npm install
+### Configuration
+Create a `.env` file in the `backend/` directory:
+```env
+PORT=5000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secure_secret
+GROQ_API_KEY=your_groq_api_key
 ```
 
-### Run Development Server
-
-```
+### Development
+Run both frontend and backend concurrently:
+```bash
 npm run dev
 ```
 
-### Environment Variables
-
-Create a `.env` file:
-
-```
-PORT=5000
-DATABASE_URL=your_database_url
-JWT_SECRET=your_secret_key
+### Data Seeding
+Initialize the database with the luxury product catalog:
+```bash
+npm run seed
 ```
 
+---
+
+## 🧠 AI Integration
+
+ShopSphere utilizes the **Groq Llama 3 70B** model to power its "AI Concierge". Unlike traditional search, the AI Concierge understands context and intent.
+
+**Example Query:** *"I'm looking for a premium watch that stands out but isn't too flashy."*
+**AI Action:** The system parses the query, matches it against product descriptions in the database using LLM reasoning, and returns the most relevant IDs for instantaneous display.
+
+---
+
+## 📊 Database Modeling
+
+The system is built on a highly normalized document structure within MongoDB:
+- **One-to-One**: User ↔ Cart
+- **One-to-Many**: User → Orders, Category → Products
+- **Many-to-Many**: Orders ↔ Products (via OrderItem mapping)
+
+Refer to [ErDiagram.md](./ErDiagram.md) and [classDiagram.md](./classDiagram.md) for detailed visualizations.
+
+---
 
 <div align="center">
 
-Built with structured engineering discipline.
+Built with structured engineering discipline and a passion for premium design. ✨
 
 </div>
