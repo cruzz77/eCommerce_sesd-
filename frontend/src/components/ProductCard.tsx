@@ -2,13 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../types';
 import { useCartStore } from '../store/cartStore';
+import { useAuthStore } from '../store/authStore';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const navigate = useNavigate();
   const { addItem, isLoading } = useCartStore();
+  const { user } = useAuthStore();
 
   const effectivePrice = product.discountPercent > 0 
     ? parseFloat((product.price * (1 - product.discountPercent / 100)).toFixed(2))
@@ -59,7 +63,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           
           <button 
             disabled={product.stock === 0 || isLoading}
-            onClick={() => addItem(product._id, 1)}
+            onClick={() => {
+              if (!user) {
+                navigate('/login');
+                return;
+              }
+              addItem(product._id, 1);
+            }}
             className="font-mono text-[10px] uppercase tracking-widest text-muted hover:text-amber-accent transition-colors disabled:opacity-30"
           >
             {isLoading ? 'Adding...' : '+ Archive'}

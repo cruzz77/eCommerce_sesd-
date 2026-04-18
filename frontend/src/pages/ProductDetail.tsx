@@ -3,16 +3,26 @@ import { useParams } from 'react-router-dom';
 import productsApi from '../api/products';
 import { Product } from '../types';
 import { useCartStore } from '../store/cartStore';
+import { useAuthStore } from '../store/authStore';
+import { useNavigate } from 'react-router-dom';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const { addItem, isLoading: isAdding } = useCartStore();
+  const { user } = useAuthStore();
 
   const handleAddToCart = async () => {
     if (!product) return;
+    
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+
     try {
       await addItem(product._id, 1);
       setSuccessMessage('your item has been added to cart successfully');
