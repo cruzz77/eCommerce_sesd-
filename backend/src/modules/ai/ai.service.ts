@@ -1,6 +1,7 @@
 import Groq from 'groq-sdk';
 import productRepository from '../product/product.repository';
 import { ApiError } from '../../utils/ApiError';
+import { IProduct } from '../product/product.model';
 
 class AIService {
   private groq: Groq;
@@ -13,8 +14,9 @@ class AIService {
 
   async recommendProducts(query: string) {
     // 1. Fetch products to provide context
-    const products = await productRepository.findAll();
-    const productContext = products.map(p => ({
+    const productsResponse = await productRepository.findAll({});
+    const products = productsResponse.items;
+    const productContext = products.map((p: IProduct) => ({
       id: p._id,
       name: p.name,
       description: p.description,
@@ -45,7 +47,7 @@ class AIService {
       const matchedIds = result.ids || [];
       
       // 3. Fetch full product details for matches
-      const matchedProducts = products.filter(p => matchedIds.includes(p._id.toString()));
+      const matchedProducts = products.filter((p: IProduct) => matchedIds.includes(p._id.toString()));
       return matchedProducts;
     } catch (err) {
       console.error('AI Parsing Error:', err);

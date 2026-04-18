@@ -34,7 +34,7 @@ export class AuthController {
 
   getMe = asyncHandler(async (req: Request, res: Response) => {
     // req.user is attached by authMiddleware and contains { userId, role }
-    const user = await User.findById(req.user.userId);
+    const user = await User.findById(req.user!.userId);
     if (!user) throw new ApiError(404, 'User not found');
     
     return ApiResponse.success(res, 'User data retrieved', {

@@ -15,4 +15,9 @@ export class ApiResponse {
   static created<T>(res: Response, message: string, data?: T): Response {
     return ApiResponse.success(res, message, data, 201);
   }
+
+  static error(res: Response, message: string, statusCode = 400): Response {
+    const body: ApiResponseShape<null> = { success: false, message, data: null };
+    return res.status(statusCode).json(body);
+  }
 }

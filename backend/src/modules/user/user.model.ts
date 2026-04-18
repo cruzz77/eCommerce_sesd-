@@ -36,7 +36,7 @@ const userSchema = new Schema<IUser>(
   { timestamps: true, discriminatorKey: 'role' }
 );
 
-userSchema.pre<IUser>('save', async function () {
+userSchema.pre('save', async function (this: IUser) {
   if (this.isModified('passwordHash')) {
     this.passwordHash = await bcrypt.hash(this.passwordHash, 12);
   }
