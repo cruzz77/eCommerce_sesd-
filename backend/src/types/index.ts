@@ -1,9 +1,3 @@
-/**
- * OOP PRINCIPLE: Abstraction
- * WHY: Shared types provide a consistent contract across all modules,
- *      ensuring compile-time safety for DTOs and API responses.
- */
-
 // Enums
 export enum UserRole { ADMIN = 'admin', USER = 'user' }
 export enum OrderStatus { PENDING = 'pending', PAID = 'paid', SHIPPED = 'shipped', DELIVERED = 'delivered', CANCELLED = 'cancelled' }
